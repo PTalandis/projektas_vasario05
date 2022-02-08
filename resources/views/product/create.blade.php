@@ -1,49 +1,132 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Product</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('product.store') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Product</div>
+    
+                    <div class="card-body">
+                        <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
+                            @csrf
+    
+                            <div class="row mb-3">
+                                <label for="title" class="col-md-4 col-form-label text-md-end">Title</label>
+    
+                                <div class="col-md-6">
+                                    <input id="title" type="text" class="form-control" name="title" required autofocus>
+    
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-
+                            <div class="row mb-3">
+                                <label for="description" class="col-md-4 col-form-label text-md-end">Description</label>
+    
+                                <div class="col-md-6">
+                                    <input id="description" type="text" class="form-control" name="description" required autofocus>
+    
+                                </div>
                             </div>
-                        </div>
 
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Add
-                                </button>
-
+                            <div class="row mb-3">
+                                <label for="price" class="col-md-4 col-form-label text-md-end">Price</label>
+    
+                                <div class="col-md-6">
+                                    <input id="price" type="number" min="0" max="200" step="0.01" class="form-control" name="price" required autofocus>
+    
+                                </div>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="row mb-3">
+                                <label for="category_id" class="col-md-4 col-form-label text-md-end">Category_Id</label>
+    
+                                <div class="col-md-6">
+                                    <input id="category_id" type="number" min="1" max="3" step="1" class="form-control" name="category_id" required autofocus>
+    
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image_url" class="col-md-4 col-form-label text-md-end">Image url</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image_url" type="text" class="form-control" name="image_url" required autofocus>
+    
+                                </div>
+                            </div>
+    
+    <!--
+                            <div class="row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+    -->
+     <!--
+                            
+                            <div class="row mb-3">
+                                <label for="image_alt" class="col-md-4 col-form-label text-md-end">Image Alt</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image_alt" type="text" class="form-control" name="image_alt" required autofocus>
+    
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image_src" class="col-md-4 col-form-label text-md-end">Image</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image_src" type="file" class="form-control" name="image_src" required autofocus>
+    
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image_width" class="col-md-4 col-form-label text-md-end">Image Width</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image_width" type="number" min="0" max="200" step="10" class="form-control" name="image_width" required autofocus>
+    
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image_height" class="col-md-4 col-form-label text-md-end">Image Height</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image_height" type="number" min="0" max="200" step="10" class="form-control" name="image_height" required autofocus>
+    
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image_class" class="col-md-4 col-form-label text-md-end">Image Class</label>
+    
+                                <div class="col-md-6">
+                                    <input id="image_class" type="text" class="form-control" name="image_class" required autofocus>
+    
+                                </div>
+                            </div>
+    -->
+    
+                            <div class="row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection()
+
+@endsection
